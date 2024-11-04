@@ -1,0 +1,713 @@
+/**************/
+/* CSS REMEDY */
+/**************/
+*, *::after, *::before {
+  box-sizing:border-box;  
+}
+
+button:not(disabled) {
+  cursor:pointer;
+}
+
+
+
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+
+:root {
+  --button-background:#BC00D8;
+  --tour-data-color: #F3E4A3;
+  --white-text-color: white;
+  --header-and-nav-background:#404040;
+  --grey-text-color: #7a7a7a;
+  --blue-background: #0051B8;
+  --body-background-color: #1A1A1A;
+}
+
+@media (prefers-color-scheme: light ){
+  :root {
+  --tour-data-color: #ffcc66;
+  --header-and-nav-background: #b3b3b3;
+  --body-background-color: #666666;
+  }
+}
+/* Bron: Dark mode, Luna Jay
+ */
+
+/********************/
+/* ALGEMENE STIJLEN */
+/********************/
+body {
+  margin:0;
+  background-color: var(--body-background-color);
+}
+
+/*************/
+/* DE HEADER */
+/*************/
+header {
+  height:5.5em;
+  padding:0 1em;
+  background-color: var(--header-and-nav-background);
+  
+  /* JOUW CODE HIER - stap 3 */
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  
+  position:sticky;
+  top:0;
+}
+
+/* alle links in de header */
+header a {
+  padding:.5em 0;
+  
+  text-decoration:none;
+}
+
+header > a:first-of-type {
+  display:grid;
+  grid-template-columns:min-content min-content;
+  grid-gap:.25em;
+  align-items:center;
+  
+  font-weight:bold; 
+}
+
+header > a:first-of-type img {
+  height:3em;
+}
+
+header > a:last-of-type {
+  /* icon en tekst met gap-je naast elkaar */
+  display:flex;
+  align-items:center;
+  column-gap:.25em;
+}
+
+/* link icon */
+header > a:last-of-type img {
+  width:auto;
+  height:2em;
+}
+/*****************/
+/* BEIDE BUTTONS */
+/*****************/
+header button {
+  padding:.5em;
+  
+  /* icon en tekst met gap-je naast elkaar */
+  display:flex;
+  align-items:center;
+  gap:.25em;
+  
+  /* standaard styling aanpassen */
+  appearance:none;
+  background-color:var(--button-background);
+  border:none;
+  border-radius:.25em; 
+  font:inherit;
+  text-align:center;
+  
+}
+
+header button img {
+  height:1em;
+}
+
+/***************/
+/* MENU BUTTON */
+/***************/
+header > button {
+  /* JOUW CODE HIER - stap 3 */
+  order: 3;
+}
+ 
+
+/***************/
+/* SLUIT BUTTON */
+/***************/
+nav button {
+  justify-self:start;
+ }
+ /************/
+/* HET MENU */
+/************/
+nav {
+  padding:1em;
+  background-color: var(--header-and-nav-background);
+  display:grid;
+  align-content:start;
+  gap:1em;
+  
+  
+  
+  /* JOUW CODE HIER - stap 1 */
+  position:fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  width: 100%;
+  
+  /* JOUW CODE HIER - stap 2 */
+  translate: -100% 0%;
+  
+  /* JOUW CODE HIER - stap 4 */
+  transition:translate .3s;
+}
+
+/* als menu open is */
+nav.toonMenu {
+  /* JOUW CODE HIER - stap 4 */
+  translate: 0% 0%;
+  color: var(--white-text-color);
+  width: 100vw;
+
+}
+
+/*******************/
+/* LIJST MET LINKS */
+/*******************/
+nav ul { 
+  margin:0; 
+  padding:0em;
+  list-style:none;
+  
+}
+
+/************************/
+/* EEN LINK IN DE LIJST */
+/************************/
+nav a {
+  /* icon en tekst met gap-je naast elkaar */
+  display:flex;
+  align-items:center;
+  column-gap:.25em;
+  color: var(--white-text-color);
+  
+  
+}
+
+nav a img {
+  width:auto;
+  height:2em;
+}
+
+nav a.active {
+  font-weight:bold;
+}
+
+nav {
+	display: flex;
+	width: 25.6em;
+	height: 5.6em;
+	justify-content: center;
+	
+	
+  }
+
+  .blok {
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  height: 11em;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--header-and-nav-background);
+  color: var(--white-text-color);
+  }
+
+.regular {
+  font-family: "Montserrat", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+.bold {
+  font-family: "Montserrat", system-ui;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
+.extrab {
+  font-family: "Montserrat", system-ui;
+  font-weight: 800;
+  font-style: normal;
+}
+
+a {
+text-decoration: none;
+}
+
+ul {
+  list-style-type: none;  
+  }
+.banner-card {
+position:relative;
+}
+.banner-text {
+position:absolute;
+bottom: 10%;
+left: 5%;
+font-size: 0.8em;
+padding: 0.5em;
+color: var(--white-text-color);
+}
+
+
+.banner-text a {
+bottom: 0%;
+left: 5%;
+font-size: 0.8em;
+color: var(--white-text-color);
+  }
+  /* Bron: Tekst in afbeelding zetten, https://www.youtube.com/watch?v=Si4ViAvvnwU&ab_channel=DcodeShow */
+
+  .label {
+  align-content: flex-start;
+  position:relative;
+  }
+
+@keyframes slide {
+	from {transform: translateX(0)
+	}
+	
+	to {transform: translateX(-100%)
+	}	
+	}
+	/* Bron: https://www.youtube.com/watch?v=nAjR0Oj0J8E&t=325s&ab_channel=CodingwithRobby <p>Logo carousel with CSS</p> */
+
+
+  /* *ANIMATION* */
+  #bewegende-afbeelding {
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  #bewegende-afbeelding.beweeg {
+    transform: translateX(100px); /* Pas de waarde aan voor de beweging */
+  }
+  /* Bron: Afbeelding laten bewegen on click, ChatGPT, https://chatgpt.com/share/670cea83-81f0-800b-96f4-20970b1bb72c */
+  
+ 
+
+
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+/* Bron: https://www.youtube.com/watch?v=nAjR0Oj0J8E&t=325s&ab_channel=CodingwithRobby <p>Logo carousel with CSS</p> */
+  .song {
+  padding: 0.44em 0;
+  background-color: white;
+  white-space: nowrap;
+  
+  
+  }
+  /* Bron: https://www.youtube.com/watch?v=nAjR0Oj0J8E&t=325s&ab_channel=CodingwithRobby <p>Logo carousel with CSS</p> */
+
+  .song img {
+  width: 1.5em;
+  height: 1.5em;
+  
+  
+  }
+
+  .song-slide {
+  display: flex;
+  flex-direction: row;
+  animation: 10000ms slide infinite linear;
+  gap: .2em;
+  
+  }
+/* Bron: https://www.youtube.com/watch?v=nAjR0Oj0J8E&t=325s&ab_channel=CodingwithRobby <p>Logo carousel with CSS</p> */
+
+
+  .flex-container {
+   display: flex;
+  justify-content: center;
+  gap: 1.5em;
+
+  }
+  .flex-container img {
+    width:1em; 
+    height:1em;
+ 
+   }
+
+  img {
+    max-width: 100%;	
+    }
+
+  .rond img {
+  border-radius: 5%;
+  }
+#menu-logo {
+width: 40; 
+height: 45;
+}
+ #winkelwagen{
+width:15; 
+height: 15;
+ }
+  .wit {
+  background-color: white;  
+  }
+  .geel {
+    color: var(--tour-data-color);
+    }
+
+  .grijs {
+
+  color: var(--grey-text-color);
+  
+  }
+
+  .grey {
+   background-color:#F8F8F8;
+  }
+  .blauw {
+  background-color: var(--blue-background);
+  
+  }
+
+  .tekstwit {
+  color: var(--white-text-color);
+  }
+  .lees {
+    text-decoration: none;
+    }
+
+  .limited {
+  background-color: var(--button-background);
+  color: var(--white-text-color);
+  margin: 0.5em;
+   padding: 0.5em;
+   border-radius: 0.7em;
+  }
+
+  .tour {
+   background-color: #FF0000; 
+   color: var(--white-text-color);
+   margin: 0.5em;
+   padding: 0.5em;
+   border-radius: 0.7em;
+  }
+
+.pad1 {
+padding: 0.7em; 
+}
+
+.pad2 {
+padding: 2em;  
+}
+
+.padding-horizontal {
+  padding-left: 1.6em; 
+  padding-top: 0.7em;
+  padding-bottom: 0.05em;
+  
+  }
+
+  
+.footer-padding li {
+  font-size: 0.9em;
+  padding: 0.3em;
+  }
+
+  .footer-padding h4 {
+    padding-top: 0.44em;
+    }
+
+  .eentwee {
+  /* display: flex;
+  justify-content: center; */
+  margin: 0.3em;
+  padding: 0.3em;
+  background-color: #E9E6ED;
+  text-decoration: none;
+  color: var(--grey-text-color);
+  }
+
+.wit>div:last-of-type {
+display: flex;
+justify-content: center;
+}
+/* Bron: Last of type, Luna Jay */
+
+  iframe:last-of-type {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+/* Bron: Img positioneren, W3 schools, https://www.w3schools.com/howto/howto_css_image_center.asp */
+
+  .eentwee img {
+    height: 1em;
+    width: 1em;
+
+    }
+
+.wrapper {
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-column-gap: 1em;
+grid-row-gap: 1em;
+padding: 1.5em;
+
+}
+
+.wrapper img {
+  width: 12.5em ;
+  height: 12.5em ;
+  padding: 0.4em;
+ 
+  }
+.wrapper h5 {
+padding-bottom: 0.4em;
+padding-left:0.4em;
+}
+
+.wrapper p {
+margin-bottom: 0.4em;
+padding-left:0.5em;
+}
+ 
+.wrapper button {
+padding:0.8em;
+margin:0.5em;
+border-radius:1em;
+color: var(--white-text-color);
+background-color: var(--button-background);
+}
+
+.button {
+  text-decoration: none;
+  color: black;
+  
+}
+
+.button {
+  margin: 0.5em;
+  background-color: var(--tour-data-color);
+  border-radius: 1em;
+  padding: 0.8em;
+  display: flex;
+  justify-content: center;
+  
+
+
+}
+
+.button-paars {
+  display: flex;
+  justify-content: center;
+  padding:0.5em;
+  margin: 0.4em;
+  border-radius:1em;
+  text-decoration: none;
+  font-family: "Montserrat", system-ui;
+  font-size: 1em;
+  background-color: var(--button-background);
+}
+
+.button-paars a {
+color: var(--white-text-color);
+}
+
+.onclick {
+margin: 0.5em;
+color: black;
+background-color: var(--tour-data-color);
+border-radius: 1em;
+border: none;
+padding: 0.8em;
+display: flex;
+justify-content: center;
+}
+
+
+.youtube {
+  display: flex;
+  /* justify-content: center; */
+  align-content: center;
+}
+
+/* PIJLTJES KNOPPEN CAROUSEL */
+
+/********************/
+/* ALGEMENE STIJLEN */
+/********************/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+	--maxWidth:32rem;
+}
+
+body {
+	grid-template-columns: minmax(auto, var(--maxWidth));
+	justify-content:center;
+}
+
+  
+/******************************/
+/* DE CAROCARROUSEL CONTAINER */
+/******************************/
+
+.caroCarrousel {
+	/* basis waarden die door de hele carrousel gebruikt worden */
+	/* kun je zelf aanpassen */
+ --caroCarrouselMainColor:#333;
+  --caroCarrouselAccentColor:#1b75b3;
+	--caroCarrouselShadeColor:#ddd9;
+
+  position: relative;
+  overflow: hidden; /* om de linkbuttons te verbergen */
+	outline:none;
+} 
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+  .caroCarrousel {
+    --caroCarrouselMainColor:#ccc;
+    --caroCarrouselShadeColor:#4449;
+  }
+}
+
+
+/************************************/
+/* de carrousel elementen container */
+.caroCarrousel > ul {
+  margin: 0; padding: 0;
+  list-style: none;
+	display: flex; 
+	
+	/* handmatig scrollen is mogelijk */
+	overflow: hidden;
+	 
+	/* snappen als er gescrolled wordt - andere helft bij li */
+  scroll-snap-type: inline mandatory;
+   
+  /* smooth scrollen */
+	scroll-behavior: smooth;
+  
+  /* scrollbar zoveel mogelijk verbergen */
+  -webkit-overflow-scrolling: touch; /* voor iOS*/
+  -ms-overflow-style: none; /* voor IE */
+	scrollbar-width: none; /* voor firefox */
+} 
+
+.caroCarrousel > ul::-webkit-scrollbar {
+  /* scrollbar zoveel mogelijk verbergen */
+  display: none; /* voor chrome, safari en edge*/
+} 
+
+
+/**************************/
+/* de carrousel elementen */
+.caroCarrousel > ul li {
+  flex-basis: 100%;
+  flex-shrink: 0; 
+  /* snappen als er gescrolled wordt - andere helft bij ul */
+	scroll-snap-align:center;
+}
+ 
+
+/**********************************/
+/* de carrousel elementen content */
+
+/* de stijlen voor jouw content hier */
+.caroCarrousel > ul li > img {
+  display: block;
+  width: 100%;
+}
+ 
+
+/****************************/
+/* PREV EN NEXT LINKBUTTONS */
+/****************************/
+.caroCarrousel > a {
+  position: absolute;
+  width: 3em;
+  aspect-ratio:1/1;
+	top: calc(50% - 1.5em);
+  
+  color: var(--caroCarrouselMainColor);
+  background-color: var(--caroCarrouselShadeColor);
+  outline: none;
+	box-shadow: inset 0 0 0 1px currentColor;
+	
+  display:grid;
+  place-items:center;
+  
+  transition: 0.5s;
+} 
+
+/* initieel staan de links "buiten beeld" */
+.caroCarrousel > a[href="previous"] {
+  left:-3.5em;
+}
+.caroCarrousel > a[href="next"] {
+  right: -3.5em;
+} 
+
+/* bij hover en focus schuiven de links in beeld */
+.caroCarrousel:hover > a[href="previous"],
+.caroCarrousel:focus-within > a[href="previous"] {
+  left:.5em;
+} 
+.caroCarrousel:hover > a[href="next"],
+.caroCarrousel:focus-within > a[href="next"] {
+  right:.5em;
+} 
+
+/*prev en next linkbuttons pijltjes */
+.caroCarrousel > a::before,
+.caroCarrousel > a::after {
+  content: "";
+  position: absolute;
+  width: 1em; height: 4px;
+  background-color: currentColor;
+} 
+
+.caroCarrousel > a[href=previous]::before {
+	transform-origin: 2px center;
+	transform: translateY(0) rotate(45deg);
+}
+.caroCarrousel > a[href=previous]::after {
+	transform-origin: 2px center;
+	transform: translateY(0) rotate(-45deg);
+}
+
+.caroCarrousel > a[href=next]::before {
+	transform-origin: calc(100% - 2px) center;
+	transform: translateY(0) rotate(45deg);
+}
+.caroCarrousel > a[href=next]::after {
+	transform-origin: calc(100% - 2px) center;
+	transform: translateY(0) rotate(-45deg);
+}
+
+.caroCarrousel > a:hover,
+.caroCarrousel > a:focus {
+  color: var(--caroCarrouselAccentColor);
+} 
+
+/* <!-- Bron: Codepen,pijltjes carousel, https://codepen.io/shooft/pen/mdBOZLz --> */
+
+  
+
+  
+  
